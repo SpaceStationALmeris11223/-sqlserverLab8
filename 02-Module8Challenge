@@ -26,33 +26,37 @@ USE Northwind;
 Retrieve a list of products. 
 The list should include the product name, unit price, 
 and how many units Northwind has in stock.
-*/
 
+
+*/
+sqlcmd -S localhost -U sa -P P@ssw0rd -d Northwind -Q "SELECT * FROM Products;"
 /
 *2.	
 List the product name and units in stock for products where UnitsInStock equals zero.
 */
-
+sqlcmd -S localhost -U sa -P P@ssw0rd -d Northwind -Q "SELECT ProductName,UnitsInStock  FROM Products where UnitsInStock = 0 "
 /*
 3.	List the product name and the unit price for each product. 
 Sort the list with the smallest unit price on top.
 */
-
+sqlcmd -S localhost -U sa -P P@ssw0rd -d Northwind -Q "SELECT ProductName, UnitPrice  FROM Products order by UnitPrice  "
 
 /*
 4.	List all products with the brand "Sir Rodney's" in the product name. 
 */
+ sqlcmd -S localhost -U sa -P P@ssw0rd -d Northwind -Q "SELECT *  FROM Products where ProductName Like 'Sir Rodney%'  "
+ --This one took me way longer than it should to figure out T_T
 
 
 /*
 5.	Create a list of product names and product IDs for products 
 with supplier ID 20. Order by product name. */
-
+sqlcmd -S localhost -U sa -P P@ssw0rd -d Northwind -Q "SELECT ProductName, ProductID  FROM Products where SupplierID = 20 order by ProductName "
 /*
 6.	List the product ID and product name for products with 
 zero units on order. Order by product ID. 
 */
-
+sqlcmd -S localhost -U sa -P P@ssw0rd -d Northwind -Q "SELECT ProductName, ProductID  FROM Products where UnitsOnOrder = 0"
 /*
 7. Your boss has asked you for a list of orders for
        the employee Janet Leverling. 
